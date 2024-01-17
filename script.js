@@ -3,14 +3,12 @@ $(document).ready(function () {
   const $window = $(window);
   const $menu = $("#menu");
   const $menuLinks = $("#menu a");
-  const $backToTopButton = $("#backToTop");
   const $logo = $("#logo");
   const $sections = $(".section-box");
   const $backgroundImage = $(".background-image");
 
   // Scroll event listener
   $window.on("scroll", function () {
-    toggleBackToTopButton();
     toggleMenuScrolledClass();
     setActiveLinkOnScroll();
     parallaxBackgroundImage();
@@ -42,15 +40,6 @@ $(document).ready(function () {
     }
   );
 
-  // Functions
-  function toggleBackToTopButton() {
-    if ($(document).scrollTop() > 20) {
-      $backToTopButton.css("display", "block");
-    } else {
-      $backToTopButton.css("display", "none");
-    }
-  }
-
   function toggleMenuScrolledClass() {
     if ($window.scrollTop() > 0) {
       $menu.addClass("scrolled");
@@ -66,12 +55,13 @@ $(document).ready(function () {
 
     $sections.each(function (index, section) {
       const rect = section.getBoundingClientRect();
-      if (rect.top <= 0 && rect.bottom >= 0) {
-        $menuLinks.removeClass("active");
-        $($menuLinks[index]).addClass("active");
-
-        const id = $(section).attr("id");
-        history.pushState(null, null, "#" + id);
+      if (!(rect.top >= 0) && rect.bottom >= 0) {
+        setTimeout(() => {
+          $menuLinks.removeClass("active");
+          $($menuLinks[index]).addClass("active");
+          const id = $(section).attr("id");
+          history.pushState(null, null, "#" + id);
+        }, 100);
       }
     });
   }
