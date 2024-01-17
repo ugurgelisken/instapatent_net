@@ -74,5 +74,5 @@ $(document).ready(function() {
 
 $(window).scroll(function () {
   var scrollTop = $(this).scrollTop();
-  $('.contents-area').css('background-position', 'right ' + (scrollTop * 0.5 - 400) + 'px');
+  $('.background-image').css('background-position', 'center ' + (scrollTop / 1.2) + 'px');
 });

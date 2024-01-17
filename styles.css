@@ -26,7 +26,7 @@ html {
 .section {
   border-radius: 10px;
   font-size: 16px;
-  padding: 10px;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -48,11 +48,10 @@ html {
 #banner .background-image {
   position: absolute;
   top: 0;
-  left: 0;
-  width: 100%;
+  width: 104%;
   height: 100%;
-  background-image: url('banner.png');
-  background-size: cover;
+  background-image: url('img/banner.png');
+  background-size: calc(max(104%, 1400px));
   background-position: center;
   z-index: -1;
 }
@@ -232,11 +231,12 @@ footer {
 }
 
 .contents-area {
-  background-image: url('img/background_1.jpg');
-  background-position: right;
+  background-color: #344673;
+  /* background-image: url('img/background_2.jpg');
+  background-position: left;
   background-repeat: no-repeat;
   background-size: cover;
-  position: relative;
+  position: relative; */
 }
 
 .contents {
@@ -373,7 +373,7 @@ h3{
     width: 640px;
     height: auto;
     max-width: 100%;
-    margin-top: -40px;
+    margin-top: -50px;
     position: static;
 }
 
@@ -471,6 +471,14 @@ h3{
 /* Medium devices (landscape tablets, 768px and up) */
 @media (max-width: 1200px) {
 
+  #banner {
+    height: 600px;
+  }
+
+  #how{
+    margin-top: -140px;
+  }
+
   .app-iphone {
     width: 640px;
     height: auto;
@@ -480,7 +488,7 @@ h3{
     bottom: 0;
     left: 50%;
     right: 50%;
-    margin-top: -60px;
+    margin-top: -40px;
 }
 
 .step-box {
